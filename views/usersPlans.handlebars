@@ -1,10 +1,18 @@
 
     <div class="planUsers">
+  <div class="nav">
+      <ul class="links">
+        <a href="/"><li>Home</li></a>
+        <a href="/price_plans"><li>Price Plans</li></a>
+        <a href="/link_user"><li>Link User</li></a>
+      </ul>
+    </div>
       <h1>Users with price plan</h1>
       <h1>Price plan:SMS 100</h1>
       <ul class="userList">
-        <li>Ntsakelo</li>
-        <li>Thabo</li>
+        {{#each user}}
+        <li>{{this}}</li>
+        {{/each}}
       </ul>
     </div>
   </body>

@@ -1,6 +1,13 @@
 <div class="allocate project">
+  <div class="nav">
+    <ul class="links">
+      <a href="/"><li>Home</li></a>
+      <a href="/price_plans"><li>Price Plans</li></a>
+      <a href="/link_user"><li>Link User</li></a>
+    </ul>
+  </div>
   <h1>Allocate price plan to a user</h1>
-  <form action="">
+  <form action="/link_user" method="POST">
     <input type="text" name="user" class="user inputs" placeholder="username" />
     <div class="planOpt">
       <select name="plans" id="plans" class="plans">

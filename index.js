@@ -4,8 +4,8 @@ import bodyParser from "body-parser";
 import session from "express-session";
 import flash from "express-flash";
 import pgPromise from "pg-promise";
-import planRoutes from "./routes/planRoutes.js";
-import planData from "./database.js";
+import PlanRoutes from "./routes/planRoutes.js";
+import PlanData from "./database.js";
 // import Waiters from "./waiters.js";
 
 const pgp = pgPromise();
@@ -45,10 +45,14 @@ app.use(bodyParser.json());
 
 app.use(express.static("public"));
 
-app.get("/", function (req, res) {
-  res.render("index");
-});
-
+//const waiters = Waiters();
+const planData = PlanData(db);
+const planRoutes = PlanRoutes(planData);
+app.get("/", planRoutes.displayHome);
+app.get("/link_user", planRoutes.displayAllocate);
+app.get("/price_plans/:id");
+app.post("/link_user", planRoutes.allocate);
+app.get("/price_plans", planRoutes.displayPlans);
 var PORT = process.env.PORT || 3030;
 app.listen(PORT, function () {
   console.log("app started on port: ", PORT);
