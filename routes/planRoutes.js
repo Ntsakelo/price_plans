@@ -16,8 +16,25 @@ export default function planRoutes(planData) {
       next(err);
     }
   }
-  function displayPlans(req, res, next) {
-    res.render("plans");
+  async function displayPlans(req, res, next) {
+    try {
+      await planData.plans();
+      res.render("plans", {
+        plans: await planData.plans(),
+      });
+    } catch (err) {
+      next(err);
+    }
+  }
+  async function getPlanUsers(req, res, next) {
+    try {
+      let planId = req.params.id;
+      res.render("usersPlans", {
+        users: await planData.planUsers(planId),
+      });
+    } catch (err) {
+      next(err);
+    }
   }
   function displayAllocate(req, res) {
     res.render("allocate");
@@ -28,5 +45,6 @@ export default function planRoutes(planData) {
     displayAllocate,
     displayPlans,
     allocate,
+    getPlanUsers,
   };
 }

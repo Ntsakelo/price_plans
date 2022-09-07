@@ -50,7 +50,7 @@ const planData = PlanData(db);
 const planRoutes = PlanRoutes(planData);
 app.get("/", planRoutes.displayHome);
 app.get("/link_user", planRoutes.displayAllocate);
-app.get("/price_plans/:id");
+app.get("/price_plans/:id", planRoutes.getPlanUsers);
 app.post("/link_user", planRoutes.allocate);
 app.get("/price_plans", planRoutes.displayPlans);
 var PORT = process.env.PORT || 3030;
