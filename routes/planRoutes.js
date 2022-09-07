@@ -13,8 +13,12 @@ export default function planRoutes(planData) {
     try {
       let username = req.body.user;
       let planType = req.body.plans;
+      if (!username || !planType) {
+        res.redirect("/link_user");
+      }
       await planData.allocateUser(username, planType);
       let planId = await planData.getUserPlanId(username);
+      req.flash("info", "user has been added");
       res.redirect("/price_plans/" + planId);
     } catch (err) {
       next(err);

@@ -111,6 +111,10 @@ a:hover {
   margin: auto;
   margin-top: 10px;
 }
+.msg {
+  margin-top: 20px;
+  color: green;
+}
 @media screen and (max-width: 490px) {
   .plan {
     width: 100%;
