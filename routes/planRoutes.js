@@ -1,7 +1,10 @@
 export default function planRoutes(planData) {
+  let cost = 0;
   async function displayHome(req, res, next) {
     try {
-      res.render("index");
+      res.render("index", {
+        cost: "R" + cost,
+      });
     } catch (err) {
       next(err);
     }
@@ -39,6 +42,16 @@ export default function planRoutes(planData) {
   function displayAllocate(req, res) {
     res.render("allocate");
   }
+  async function calculateBill(req, res, next) {
+    try {
+      let user = req.body.username;
+      let billString = req.body.usageString;
+      cost = await planData.calcBill(user, billString);
+      res.redirect("/");
+    } catch (err) {
+      next(err);
+    }
+  }
   //return
   return {
     displayHome,
@@ -46,5 +59,6 @@ export default function planRoutes(planData) {
     displayPlans,
     allocate,
     getPlanUsers,
+    calculateBill,
   };
 }

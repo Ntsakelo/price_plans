@@ -18,7 +18,7 @@
       <h1>Phone Bill Widget</h1>
       <h3>Calculate total phone bill for a user</h3>
       <div class="calcForm">
-        <form action="">
+        <form action="/calc_bill" method="POST">
           <input
             type="text"
             name="username"
@@ -34,7 +34,7 @@
           <button class="calcBtn">Calculate total phone bill</button>
         </form>
         <h3>Phone bill total</h3>
-        <div class="tot"></div>
+        <div class="tot">{{cost}}</div>
       </div>
     </div>
   </body>

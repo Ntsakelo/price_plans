@@ -53,6 +53,7 @@ app.get("/link_user", planRoutes.displayAllocate);
 app.get("/price_plans/:id", planRoutes.getPlanUsers);
 app.post("/link_user", planRoutes.allocate);
 app.get("/price_plans", planRoutes.displayPlans);
+app.post("/calc_bill", planRoutes.calculateBill);
 var PORT = process.env.PORT || 3030;
 app.listen(PORT, function () {
   console.log("app started on port: ", PORT);

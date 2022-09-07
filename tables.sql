@@ -1,8 +1,8 @@
 create table price_plan (
     id serial not null primary key ,
     plan_name text not null,
-    sms_price int not null,
-    call_price int not null
+    sms_price decimal not null,
+    call_price decimal not null
 );
 
 create table users (
