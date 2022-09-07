@@ -1,0 +1,124 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500&display=swap");
+html {
+  font-family: "Quicksand", sans-serif;
+}
+.nav {
+  width: 100%;
+  height: 50px;
+  border-bottom: 1px solid darkslategray;
+}
+.links {
+  list-style-type: none;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+  margin-top: 10px;
+}
+.links li {
+  display: inline;
+  margin: 5px;
+  font-size: 18px;
+}
+a {
+  text-decoration: none;
+  color: grey;
+}
+a:hover {
+  background-color: darkslategray;
+  border-radius: 20px;
+  color: white;
+}
+.project {
+  text-align: center;
+  margin-top: 40px;
+  color: grey;
+}
+.inputs {
+  height: 30px;
+  margin-bottom: 20px;
+  outline: none;
+}
+.calcBtn {
+  display: block;
+  margin: auto;
+  outline: none;
+  background-color: darkslategray;
+  color: white;
+  border: none;
+  height: 30px;
+}
+.calcBtn:hover {
+  cursor: pointer;
+}
+.tot {
+  height: 30px;
+  border: 1px solid darkslategray;
+  width: 150px;
+  margin: auto;
+}
+.planOpt {
+  margin-top: 10px;
+  outline: none;
+}
+.plans {
+  height: 30px;
+}
+.allocateBtn {
+  display: block;
+  margin: auto;
+  margin-top: 20px;
+  height: 30px;
+  background-color: darkslategray;
+  color: white;
+  outline: none;
+  border: none;
+}
+.plan {
+  display: flex;
+  width: 50%;
+
+  margin: auto;
+  text-align: center;
+}
+.currentPlan {
+  list-style-type: none;
+  display: flex;
+  margin: auto;
+  margin-top: 20px;
+}
+.planType {
+  margin-right: 10px;
+  border-bottom: 1px solid darkslategray;
+}
+.viewPlan {
+  border-bottom: 1px solid darkslategray;
+}
+.allocateBtn:hover {
+  cursor: pointer;
+}
+.planUsers {
+  text-align: center;
+  color: gray;
+}
+.userList {
+  list-style-type: none;
+  text-align: center;
+}
+.userList li {
+  color: white;
+  background-color: darkslategray;
+  width: 100px;
+  margin: auto;
+  margin-top: 10px;
+}
+@media screen and (max-width: 490px) {
+  .plan {
+    width: 100%;
+  }
+}
+@media screen and (min-width: 700px) {
+  .nav {
+    width: 300px;
+    margin: auto;
+  }
+}
