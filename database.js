@@ -86,7 +86,7 @@ export default function planData(db) {
         }
       }
 
-      return cost;
+      return cost.toFixed(2);
     } catch (err) {
       console.log(err);
     }
