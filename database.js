@@ -75,7 +75,8 @@ export default function planData(db) {
       let costs = await getCosts(username);
       let cost = 0;
       let smsCost = Number(costs.sms_price);
-      let callCost = Number(costs.sms_price);
+      let callCost = Number(costs.call_price);
+      console.log(callCost);
       let billList = billString.split(",");
       for (let i = 0; i < billList.length; i++) {
         let billType = billList[i].trim();
