@@ -14,7 +14,8 @@ export default function planRoutes(planData) {
       let username = req.body.user;
       let planType = req.body.plans;
       await planData.allocateUser(username, planType);
-      res.redirect("/link_user");
+      let planId = await planData.getUserPlanId(username);
+      res.redirect("/price_plans/" + planId);
     } catch (err) {
       next(err);
     }

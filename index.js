@@ -6,7 +6,6 @@ import flash from "express-flash";
 import pgPromise from "pg-promise";
 import PlanRoutes from "./routes/planRoutes.js";
 import PlanData from "./database.js";
-// import Waiters from "./waiters.js";
 
 const pgp = pgPromise();
 
@@ -45,7 +44,6 @@ app.use(bodyParser.json());
 
 app.use(express.static("public"));
 
-//const waiters = Waiters();
 const planData = PlanData(db);
 const planRoutes = PlanRoutes(planData);
 app.get("/", planRoutes.displayHome);
