@@ -9,7 +9,7 @@
     </div>
       <p class="msg">{{messages.info}}</p>
       <h1>Users with price plan</h1>
-      <h1>Price plan:SMS 100</h1>
+      <h1>Price plan:{{planType.plan_name}}</h1>
       <ul class="userList">
         {{#each users}}
         <li>{{this.username}}</li>

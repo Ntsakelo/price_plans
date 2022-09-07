@@ -38,6 +38,7 @@ export default function planRoutes(planData) {
     try {
       let planId = req.params.id;
       res.render("usersPlans", {
+        planType: await planData.getPlan(planId),
         users: await planData.planUsers(planId),
       });
     } catch (err) {

@@ -46,6 +46,16 @@ export default function planData(db) {
       console.log(err);
     }
   }
+  async function getPlan(planId) {
+    try {
+      return await db.oneOrNone(
+        "select plan_name from price_plan where id = $1",
+        [planId]
+      );
+    } catch (err) {
+      console.log(err);
+    }
+  }
   async function getUserPlanId(username) {
     try {
       let userPlanId = await db.oneOrNone(
@@ -98,5 +108,6 @@ export default function planData(db) {
     plans,
     calcBill,
     getUserPlanId,
+    getPlan,
   };
 }
