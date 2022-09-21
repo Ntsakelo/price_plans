@@ -11,7 +11,8 @@ export default function planRoutes(planData) {
   }
   async function allocate(req, res, next) {
     try {
-      let username = req.body.user;
+      let name = req.body.user;
+      let username = name.charAt(0).toUpperCase() + name.slice(1);
       let planType = req.body.plans;
       if (!username || !planType) {
         res.redirect("/link_user");
@@ -50,7 +51,8 @@ export default function planRoutes(planData) {
   }
   async function calculateBill(req, res, next) {
     try {
-      let user = req.body.username;
+      let name = req.body.username;
+      let user = name.charAt(0).toUpperCase() + name.slice(1);
       let billString = req.body.usageString;
       cost = await planData.calcBill(user, billString);
       res.redirect("/");

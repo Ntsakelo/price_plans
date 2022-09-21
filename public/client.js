@@ -1,9 +1,9 @@
 document.addEventListener("DOMContentLoaded", function () {
-  let msg = document.querySelector(".msg");
+  const msg = document.querySelector(".msg");
 
   if (msg.innerHTML !== "") {
     setTimeout(function () {
-      msg.setAttribute("style", "opacity:0");
+      msg.setAttribute("style", "display:none");
     }, 3000);
   }
 });

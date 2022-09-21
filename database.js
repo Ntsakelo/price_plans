@@ -82,22 +82,29 @@ export default function planData(db) {
   }
   async function calcBill(username, billString) {
     try {
-      let costs = await getCosts(username);
+      let count = await db.oneOrNone(
+        "select count(*) from users where username =$1",
+        [username]
+      );
       let cost = 0;
-      let smsCost = Number(costs.sms_price);
-      let callCost = Number(costs.call_price);
-      console.log(callCost);
-      let billList = billString.split(",");
-      for (let i = 0; i < billList.length; i++) {
-        let billType = billList[i].trim();
-        if (billType.toLowerCase() === "sms") {
-          cost += smsCost;
-        } else if (billType.toLowerCase() === "call") {
-          cost += callCost;
-        }
-      }
+      if (Number(count.count) > 0) {
+        let costs = await getCosts(username);
+        let smsCost = Number(costs.sms_price);
+        let callCost = Number(costs.call_price);
 
-      return cost.toFixed(2);
+        let billList = billString.split(",");
+        for (let i = 0; i < billList.length; i++) {
+          let billType = billList[i].trim();
+          if (billType.toLowerCase() === "sms") {
+            cost += smsCost;
+          } else if (billType.toLowerCase() === "call") {
+            cost += callCost;
+          }
+        }
+        return cost.toFixed(2);
+      } else if (Number(count.count <= 0)) {
+        return cost.toFixed(2);
+      }
     } catch (err) {
       console.log(err);
     }
